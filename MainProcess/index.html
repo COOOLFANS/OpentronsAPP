@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>OpentronsAPP</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <title>Electron Axios Request</title>
 </head>
 <body>
-    <h1>Hello Wssorld!</h1>
-    <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromss ium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
-    </p>
+  <button id="sendRequest">切换灯光</button>
+  
+
+  <script>
+    toggleLight=true
+    document.getElementById('sendRequest').addEventListener('click', function() {
+   
+        toggleLight=!toggleLight
+        const axios = require('axios');
+        console.log(toggleLight)
+        const response = axios.post('http://169.254.207.220:31950/robot/lights', {
+            on: toggleLight
+        }, {
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Opentrons-Version': '3',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Opentrons/6.3.1 Chrome/106.0.5249.181 Electron/21.3.1 Safari/537.36'
+            }
+        });
+
+
+})
+  </script>
 </body>
 </html>

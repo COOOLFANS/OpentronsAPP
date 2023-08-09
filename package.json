@@ -1,5 +1,5 @@
 {
-  "name":"opentronsapp",
+  "name": "opentronsapp",
   "version": "1.0.0",
   "description": "none",
   "main": "./MainProcess/index.js",
